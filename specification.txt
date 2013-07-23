@@ -1,0 +1,11 @@
+Swaggie -- A Rails performance testing framework
+
+Requirements:
+  - Samples all SQL calls
+  - Logs length of time
+  - Can classify "similar" SQL statements, and nest classifications
+  - Provide good interface so analysis can be made
+
+Implementation:
+  - Use SQLite3
+  - Use sequel

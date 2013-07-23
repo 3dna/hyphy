@@ -2,7 +2,7 @@ class Swaggie::AbstractFilter
 
   attr_reader :dataset
 
-  def initialize(dataset)
+  def initialize(dataset, opts={})
     @dataset = dataset
   end
 

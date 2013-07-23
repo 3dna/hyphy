@@ -9,3 +9,11 @@ Requirements:
 Implementation:
   - Use SQLite3
   - Use sequel
+
+Todo:
+  - Actually sample all SQL statements for performance reasons
+
+Filters
+  - Nation
+  - Query time
+  - Query base

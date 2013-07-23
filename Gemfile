@@ -2,7 +2,7 @@ source "http://rubygems.org"
 
 gem "sequel"
 gem "sqlite3"
-gem "activesupport", "~> 4.0.0"
+gem "activesupport", "~> 3.2"
 
 group :development do
   gem "bundler"

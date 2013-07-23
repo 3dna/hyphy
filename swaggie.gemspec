@@ -37,7 +37,8 @@ Gem::Specification.new do |s|
     "spec/orm_adapters/activerecord_orm_adapter_spec.rb",
     "spec/spec_helper.rb",
     "spec/swaggie_spec.rb",
-    "specification.txt"
+    "specification.txt",
+    "swaggie.gemspec"
   ]
   s.homepage = "http://github.com/3dna/swaggie"
   s.licenses = ["MIT"]
@@ -51,7 +52,7 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<sequel>, [">= 0"])
       s.add_runtime_dependency(%q<sqlite3>, [">= 0"])
-      s.add_runtime_dependency(%q<activesupport>, ["~> 4.0.0"])
+      s.add_runtime_dependency(%q<activesupport>, ["~> 3.2"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<database_cleaner>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
@@ -62,7 +63,7 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<sequel>, [">= 0"])
       s.add_dependency(%q<sqlite3>, [">= 0"])
-      s.add_dependency(%q<activesupport>, ["~> 4.0.0"])
+      s.add_dependency(%q<activesupport>, ["~> 3.2"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<database_cleaner>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -74,7 +75,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<sequel>, [">= 0"])
     s.add_dependency(%q<sqlite3>, [">= 0"])
-    s.add_dependency(%q<activesupport>, ["~> 4.0.0"])
+    s.add_dependency(%q<activesupport>, ["~> 3.2"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<database_cleaner>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])

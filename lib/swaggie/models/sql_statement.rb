@@ -1,7 +1,7 @@
 Swaggie::DB.create_table(:sql_statements) do
   primary_key :id
 
-  String :statement, :text=>true
+  String :statement, :text => true
   Float :start_time
   Float :end_time
 end

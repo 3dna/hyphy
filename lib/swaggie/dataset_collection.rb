@@ -16,10 +16,20 @@ class Swaggie::DatasetCollection
     collection = Hash.new { |hash, key| hash[key] = [] }
 
     @dataset.data.each do |sql_statement|
-      collection[sql_statement.send(@key)] = sql_statement
+      collection[sql_statement.send(@key)] << sql_statement
     end
 
     collection.each { |key, value| @dataset_collection[key] = Swaggie::Dataset.new(value) }
+  end
+
+  def counts_hash
+    key_to_count = {}
+
+    @dataset_collection.map do |key, dataset|
+      key_to_count[key] = dataset.data.count
+    end
+
+    key_to_count
   end
 
 end

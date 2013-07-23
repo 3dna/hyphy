@@ -15,7 +15,6 @@ describe Swaggie::Dataset do
   describe "#get_data" do
 
     it "stores all sql statements in the data attribute" do
-      dataset.get_data
       dataset.data.should == [sql_statement1, sql_statement2]
     end
 
@@ -27,7 +26,6 @@ describe Swaggie::Dataset do
       Swaggie::AbstractFilter.any_instance.stub(:filter)
         .and_return([sql_statement1])
 
-      dataset.get_data
       dataset.apply_filter(Swaggie::AbstractFilter)
       dataset.data.should == [sql_statement1]
     end

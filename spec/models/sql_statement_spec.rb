@@ -8,7 +8,8 @@ describe Hyphy::SQLStatement do
   let(:sql_statement) { Hyphy::SQLStatement.new(:statement => statement,
                                                 :start_time => 2,
                                                 :end_time => 3.001,
-                                                :trace_json => JSON(["hello!"])) }
+                                                :trace_json => JSON(["hello!"]),
+                                                :metadata_json => JSON({ "hello!" => "hi!" })) }
 
   describe "#duration" do
 
@@ -55,6 +56,24 @@ describe Hyphy::SQLStatement do
 
       Hyphy::SQLStatement.truncate_table
       Hyphy::SQLStatement.all.count.should == 0
+    end
+
+  end
+
+  describe "#metadata" do
+
+    it 'should return the decoded json from the metadata_json attribute' do
+      sql_statement.metadata.should == { "hello!" => "hi!" }
+    end
+
+  end
+
+  describe "#add_metadata" do
+
+    it "should store the key, value pair in the metadata" do
+      sql_statement.add_metadata("key", "value")
+
+      sql_statement.metadata["key"].should == "value"
     end
 
   end

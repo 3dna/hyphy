@@ -5,6 +5,7 @@ Hyphy::DB.create_table(:sql_statements) do
 
   String :statement, :text => true
   String :trace_json, :text => true
+  String :metadata_json, :text => true
   Float :start_time
   Float :end_time
 end
@@ -27,6 +28,17 @@ class Hyphy::SQLStatement < Sequel::Model
 
   def trace
     JSON.parse(trace_json)
+  end
+
+  def metadata
+    JSON.parse(metadata_json)
+  end
+
+  def add_metadata(key, value)
+    new_metadata = metadata
+    new_metadata[key] = value
+    self.metadata_json = JSON(new_metadata)
+    save
   end
 
   def self.truncate_table

@@ -13,8 +13,8 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  gem.name = "swaggie"
-  gem.homepage = "http://github.com/3dna/swaggie"
+  gem.name = "hyphy"
+  gem.homepage = "http://github.com/3dna/hyphy"
   gem.license = "MIT"
   gem.summary = %Q{Identify SQL bottlenecks}
   gem.description = %Q{Identify SQL bottlenecks}
@@ -41,7 +41,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "swaggie #{version}"
+  rdoc.title = "hyphy #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

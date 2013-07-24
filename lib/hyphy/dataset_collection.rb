@@ -1,11 +1,11 @@
-class Swaggie::DatasetCollection
+class Hyphy::DatasetCollection
 
   class InvalidKeyException < Exception; end
 
   attr_reader :dataset_collection
 
   def initialize(dataset, key)
-    raise InvalidKeyException unless Swaggie::SQLStatement.method_defined?(key)
+    raise InvalidKeyException unless Hyphy::SQLStatement.method_defined?(key)
 
     @key = key
     @dataset = dataset
@@ -19,7 +19,7 @@ class Swaggie::DatasetCollection
       collection[sql_statement.send(@key)] << sql_statement
     end
 
-    collection.each { |key, value| @dataset_collection[key] = Swaggie::Dataset.new(value) }
+    collection.each { |key, value| @dataset_collection[key] = Hyphy::Dataset.new(value) }
   end
 
   def counts_hash

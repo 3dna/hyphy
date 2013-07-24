@@ -1,17 +1,17 @@
 require 'spec_helper'
 
-describe Swaggie::Sampler do
+describe Hyphy::Sampler do
 
   describe ".begin" do
 
     it "subscribes to SQL notifications" do
-      Swaggie::ActiveRecordAdapter.should_receive(:subscribe_to_sql_notifications)
-      Swaggie::Sampler.begin
+      Hyphy::ActiveRecordAdapter.should_receive(:subscribe_to_sql_notifications)
+      Hyphy::Sampler.begin
     end
 
     it "throws an exception for unsupported ORMs" do
-      expect{ Swaggie::Sampler.begin :orm => :datamapper }
-        .to raise_error(Swaggie::Sampler::UnsupportedORMException)
+      expect{ Hyphy::Sampler.begin :orm => :datamapper }
+        .to raise_error(Hyphy::Sampler::UnsupportedORMException)
     end
 
   end

@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-describe Swaggie::Dataset do
+describe Hyphy::Dataset do
 
-  let!(:sql_statement1) { Swaggie::SQLStatement.create(:statement => "select * from table1",
+  let!(:sql_statement1) { Hyphy::SQLStatement.create(:statement => "select * from table1",
                                                        :start_time => 1.001,
                                                        :end_time => 2.002) }
 
-  let!(:sql_statement2) { Swaggie::SQLStatement.create(:statement => "select * from table2",
+  let!(:sql_statement2) { Hyphy::SQLStatement.create(:statement => "select * from table2",
                                                        :start_time => 1.001,
                                                        :end_time => 2.002) }
 
-  let(:dataset) { Swaggie::Dataset.new }
+  let(:dataset) { Hyphy::Dataset.new }
 
   describe "#get_data" do
 
@@ -23,10 +23,10 @@ describe Swaggie::Dataset do
   describe "#apply_filter" do
 
     it "filters the in memory dataset" do
-      Swaggie::AbstractFilter.any_instance.stub(:filter)
+      Hyphy::AbstractFilter.any_instance.stub(:filter)
         .and_return([sql_statement1])
 
-      dataset.apply_filter(Swaggie::AbstractFilter)
+      dataset.apply_filter(Hyphy::AbstractFilter)
       dataset.data.should == [sql_statement1]
     end
 

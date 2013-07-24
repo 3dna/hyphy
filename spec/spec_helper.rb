@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'database_cleaner'
 require 'pry-nav'
 require 'rspec'
-require 'swaggie'
+require 'hyphy'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.

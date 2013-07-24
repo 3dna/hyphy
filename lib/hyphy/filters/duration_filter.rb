@@ -1,4 +1,4 @@
-class Swaggie::DurationFilter < Swaggie::AbstractFilter
+class Hyphy::DurationFilter < Hyphy::AbstractFilter
 
   attr_reader :duration_min, :duration_max
 

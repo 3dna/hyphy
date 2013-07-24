@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "Swaggie" do
+describe "Hyphy" do
 
 end

@@ -1,6 +1,6 @@
 require 'json'
 
-Swaggie::DB.create_table(:sql_statements) do
+Hyphy::DB.create_table(:sql_statements) do
   primary_key :id
 
   String :statement, :text => true
@@ -9,7 +9,7 @@ Swaggie::DB.create_table(:sql_statements) do
   Float :end_time
 end
 
-class Swaggie::SQLStatement < Sequel::Model
+class Hyphy::SQLStatement < Sequel::Model
 
   DIGIT_MARKER = '<digit>'
 

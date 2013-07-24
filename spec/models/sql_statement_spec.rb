@@ -1,9 +1,9 @@
 require "spec_helper"
 
-describe Swaggie::SQLStatement do
+describe Hyphy::SQLStatement do
 
   let(:statement) { '  select * from table   ' }
-  let(:sql_statement) { Swaggie::SQLStatement.new(:statement => statement,
+  let(:sql_statement) { Hyphy::SQLStatement.new(:statement => statement,
                                                   :start_time => 2,
                                                   :end_time => 3.001) }
 
@@ -26,7 +26,7 @@ describe Swaggie::SQLStatement do
   describe "#digitless" do
 
     let(:statement) { 'select * from table where id = 44444' }
-    let(:sql_statement) { Swaggie::SQLStatement.new(:statement => statement,
+    let(:sql_statement) { Hyphy::SQLStatement.new(:statement => statement,
                                                     :start_time => 2,
                                                     :end_time => 3.001) }
 

@@ -1,4 +1,4 @@
-module Swaggie::Sampler
+module Hyphy::Sampler
 
   class UnsupportedORMException < Exception; end
 
@@ -6,7 +6,7 @@ module Swaggie::Sampler
     orm = opts[:orm] || :active_record
 
     if orm == :active_record
-      orm_adapter = Swaggie::ActiveRecordAdapter
+      orm_adapter = Hyphy::ActiveRecordAdapter
     else
       raise UnsupportedORMException, 'ORM #{orm} is not supported'
     end

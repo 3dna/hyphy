@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Swaggie::ActiveRecordAdapter do
+describe Hyphy::ActiveRecordAdapter do
 
   let(:sql_statement) { 'select count(*) from victims' }
   let(:start_time) { 1.0001 }
@@ -11,11 +11,11 @@ describe Swaggie::ActiveRecordAdapter do
     it "should catch sql.active_record notifications" do
       ActiveSupport::Notifications.should_receive(:subscribe)
         .and_yield(nil, start_time, end_time, nil, { :sql => sql_statement })
-      Swaggie::ActiveRecordAdapter.should_receive(:log_sql).with(sql_statement,
+      Hyphy::ActiveRecordAdapter.should_receive(:log_sql).with(sql_statement,
                                                                  start_time,
                                                                  end_time)
 
-      Swaggie::ActiveRecordAdapter.subscribe_to_sql_notifications
+      Hyphy::ActiveRecordAdapter.subscribe_to_sql_notifications
     end
 
   end

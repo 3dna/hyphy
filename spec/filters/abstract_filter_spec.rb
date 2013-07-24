@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Swaggie::AbstractFilter do
+describe Hyphy::AbstractFilter do
 
   it 'stores a dataset' do
     dataset = [1, 2]
-    filter = Swaggie::AbstractFilter.new(dataset)
+    filter = Hyphy::AbstractFilter.new(dataset)
 
     filter.dataset.should == dataset
     filter.filter.should == dataset

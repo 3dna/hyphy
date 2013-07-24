@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Swaggie::DatasetCollection do
+describe Hyphy::DatasetCollection do
 
   before(:each) do
-    Swaggie::SQLStatement.create :statement => 'select * from table where id = 4'
-    Swaggie::SQLStatement.create :statement => 'select * from table where id = 7'
-    Swaggie::SQLStatement.create :statement => 'select * from table'
+    Hyphy::SQLStatement.create :statement => 'select * from table where id = 4'
+    Hyphy::SQLStatement.create :statement => 'select * from table where id = 7'
+    Hyphy::SQLStatement.create :statement => 'select * from table'
   end
 
-  let(:dataset) { Swaggie::Dataset.new }
-  let(:dataset_collection) { Swaggie::DatasetCollection.new(dataset, :statement) }
+  let(:dataset) { Hyphy::Dataset.new }
+  let(:dataset_collection) { Hyphy::DatasetCollection.new(dataset, :statement) }
 
   describe "#process_dataset" do
 

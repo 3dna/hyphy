@@ -1,4 +1,4 @@
-class Swaggie::AbstractFilter
+class Hyphy::AbstractFilter
 
   attr_reader :dataset
 

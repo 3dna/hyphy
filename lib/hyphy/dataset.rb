@@ -1,9 +1,9 @@
-class Swaggie::Dataset
+class Hyphy::Dataset
 
   attr_reader :data
 
   def initialize(data=nil)
-    @data = data || Swaggie::SQLStatement.all
+    @data = data || Hyphy::SQLStatement.all
   end
 
   def apply_filter(filter_class, opts={})

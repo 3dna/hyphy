@@ -1,6 +1,6 @@
 require 'active_support/notifications'
 
-class Swaggie::ActiveRecordAdapter < Swaggie::AbstractORMAdapter
+class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
 
   def self.subscribe_to_sql_notifications
     ActiveSupport::Notifications.subscribe('sql.active_record') do |*args|

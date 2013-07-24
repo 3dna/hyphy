@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Huie"]
-  s.date = "2013-07-23"
+  s.date = "2013-07-24"
   s.description = "Identify SQL bottlenecks"
   s.email = "david@nationbuilder.com"
   s.extra_rdoc_files = [
@@ -30,18 +30,21 @@ Gem::Specification.new do |s|
     "lib/swaggie.rb",
     "lib/swaggie/database.rb",
     "lib/swaggie/dataset.rb",
+    "lib/swaggie/dataset_collection.rb",
     "lib/swaggie/filters/abstract_filter.rb",
     "lib/swaggie/filters/duration_filter.rb",
     "lib/swaggie/models/sql_statement.rb",
     "lib/swaggie/orm_adapters/abstract_orm_adapter.rb",
     "lib/swaggie/orm_adapters/activerecord_adapter.rb",
     "lib/swaggie/sampler.rb",
+    "spec/dataset_collection_spec.rb",
     "spec/dataset_spec.rb",
     "spec/filters/abstract_filter_spec.rb",
     "spec/filters/duration_filter_spec.rb",
     "spec/models/sql_statement_spec.rb",
     "spec/orm_adapters/abstract_orm_adapter_spec.rb",
     "spec/orm_adapters/activerecord_orm_adapter_spec.rb",
+    "spec/processor_spec.rb",
     "spec/sampler_spec.rb",
     "spec/spec_helper.rb",
     "spec/swaggie_spec.rb",

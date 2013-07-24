@@ -43,12 +43,9 @@ Gem::Specification.new do |s|
     "spec/filters/abstract_filter_spec.rb",
     "spec/filters/duration_filter_spec.rb",
     "spec/models/sql_statement_spec.rb",
-    "spec/orm_adapters/abstract_orm_adapter_spec.rb",
     "spec/orm_adapters/activerecord_orm_adapter_spec.rb",
-    "spec/processor_spec.rb",
     "spec/sampler_spec.rb",
     "spec/spec_helper.rb",
-    "spec/swaggie_spec.rb",
     "specification.txt"
   ]
   s.homepage = "http://github.com/3dna/hyphy"

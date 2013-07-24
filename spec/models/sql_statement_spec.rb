@@ -4,8 +4,8 @@ describe Hyphy::SQLStatement do
 
   let(:statement) { '  select * from table   ' }
   let(:sql_statement) { Hyphy::SQLStatement.new(:statement => statement,
-                                                  :start_time => 2,
-                                                  :end_time => 3.001) }
+                                                :start_time => 2,
+                                                :end_time => 3.001) }
 
   describe "#duration" do
 
@@ -27,8 +27,8 @@ describe Hyphy::SQLStatement do
 
     let(:statement) { 'select * from table where id = 44444' }
     let(:sql_statement) { Hyphy::SQLStatement.new(:statement => statement,
-                                                    :start_time => 2,
-                                                    :end_time => 3.001) }
+                                                  :start_time => 2,
+                                                  :end_time => 3.001) }
 
     it 'replaces numbers with a marker' do
       sql_statement.digitless.should == 'select * from table where id = <digit>'

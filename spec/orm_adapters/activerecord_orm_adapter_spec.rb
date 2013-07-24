@@ -12,8 +12,8 @@ describe Hyphy::ActiveRecordAdapter do
       ActiveSupport::Notifications.should_receive(:subscribe)
         .and_yield(nil, start_time, end_time, nil, { :sql => sql_statement })
       Hyphy::ActiveRecordAdapter.should_receive(:log_sql).with(sql_statement,
-                                                                 start_time,
-                                                                 end_time)
+                                                               start_time,
+                                                               end_time)
 
       Hyphy::ActiveRecordAdapter.subscribe_to_sql_notifications
     end

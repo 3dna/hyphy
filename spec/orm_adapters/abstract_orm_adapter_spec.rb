@@ -10,8 +10,8 @@ describe Hyphy::AbstractORMAdapter do
 
     it 'creates a new SQLStatement row' do
       Hyphy::AbstractORMAdapter.log_sql(sql,
-                                          start_time,
-                                          end_time)
+                                        start_time,
+                                        end_time)
 
       sql_statement = Hyphy::SQLStatement.last
       sql_statement.statement.should == sql

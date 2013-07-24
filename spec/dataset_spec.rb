@@ -3,12 +3,12 @@ require 'spec_helper'
 describe Hyphy::Dataset do
 
   let!(:sql_statement1) { Hyphy::SQLStatement.create(:statement => "select * from table1",
-                                                       :start_time => 1.001,
-                                                       :end_time => 2.002) }
+                                                     :start_time => 1.001,
+                                                     :end_time => 2.002) }
 
   let!(:sql_statement2) { Hyphy::SQLStatement.create(:statement => "select * from table2",
-                                                       :start_time => 1.001,
-                                                       :end_time => 2.002) }
+                                                     :start_time => 1.001,
+                                                     :end_time => 2.002) }
 
   let(:dataset) { Hyphy::Dataset.new }
 

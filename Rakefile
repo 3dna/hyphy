@@ -16,8 +16,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "hyphy"
   gem.homepage = "http://github.com/3dna/hyphy"
   gem.license = "MIT"
-  gem.summary = %Q{Identify SQL bottlenecks}
-  gem.description = %Q{Identify SQL bottlenecks}
+  gem.summary = %Q{Identify SQL bottlenecks in tests}
+  gem.description = %Q{Identify SQL bottlenecks in tests}
   gem.email = "david@nationbuilder.com"
   gem.authors = ["David Huie"]
 end

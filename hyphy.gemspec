@@ -4,13 +4,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "swaggie"
+  s.name = "hyphy"
   s.version = "0.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Huie"]
   s.date = "2013-07-24"
-  s.description = "Identify SQL bottlenecks"
+  s.description = "Identify SQL bottlenecks in tests"
   s.email = "david@nationbuilder.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -27,16 +27,16 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "lib/swaggie.rb",
-    "lib/swaggie/database.rb",
-    "lib/swaggie/dataset.rb",
-    "lib/swaggie/dataset_collection.rb",
-    "lib/swaggie/filters/abstract_filter.rb",
-    "lib/swaggie/filters/duration_filter.rb",
-    "lib/swaggie/models/sql_statement.rb",
-    "lib/swaggie/orm_adapters/abstract_orm_adapter.rb",
-    "lib/swaggie/orm_adapters/activerecord_adapter.rb",
-    "lib/swaggie/sampler.rb",
+    "lib/hyphy.rb",
+    "lib/hyphy/database.rb",
+    "lib/hyphy/dataset.rb",
+    "lib/hyphy/dataset_collection.rb",
+    "lib/hyphy/filters/abstract_filter.rb",
+    "lib/hyphy/filters/duration_filter.rb",
+    "lib/hyphy/models/sql_statement.rb",
+    "lib/hyphy/orm_adapters/abstract_orm_adapter.rb",
+    "lib/hyphy/orm_adapters/activerecord_adapter.rb",
+    "lib/hyphy/sampler.rb",
     "spec/dataset_collection_spec.rb",
     "spec/dataset_spec.rb",
     "spec/filters/abstract_filter_spec.rb",
@@ -51,11 +51,11 @@ Gem::Specification.new do |s|
     "specification.txt",
     "swaggie.gemspec"
   ]
-  s.homepage = "http://github.com/3dna/swaggie"
+  s.homepage = "http://github.com/3dna/hyphy"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
-  s.summary = "Identify SQL bottlenecks"
+  s.summary = "Identify SQL bottlenecks in tests"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

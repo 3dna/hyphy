@@ -11,11 +11,9 @@ Implementation:
   - Use sequel
 
 Todo:
-  - Actually sample all SQL statements for performance reasons
   - Create reports
   - Save metadata from each filter
   - Create way to clear database
-  - Trace SQL to code
 
 Filters
   - Nation

@@ -29,4 +29,8 @@ class Hyphy::SQLStatement < Sequel::Model
     JSON.parse(trace_json)
   end
 
+  def self.truncate_table
+    Hyphy::DB[:sql_statements].truncate
+  end
+
 end

@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.email = "david@nationbuilder.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     ".document",
@@ -24,9 +24,10 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
+    "hyphy.gemspec",
     "lib/hyphy.rb",
     "lib/hyphy/database.rb",
     "lib/hyphy/dataset.rb",
@@ -48,8 +49,7 @@ Gem::Specification.new do |s|
     "spec/sampler_spec.rb",
     "spec/spec_helper.rb",
     "spec/swaggie_spec.rb",
-    "specification.txt",
-    "swaggie.gemspec"
+    "specification.txt"
   ]
   s.homepage = "http://github.com/3dna/hyphy"
   s.licenses = ["MIT"]

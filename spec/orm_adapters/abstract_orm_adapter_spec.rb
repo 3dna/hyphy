@@ -4,7 +4,7 @@ describe Swaggie::AbstractORMAdapter do
 
   describe ".log_sql" do
 
-    let(:sql) { 'select * from heros' }
+    let(:sql) { 'select * from heroes' }
     let(:start_time) { 1.0001 }
     let(:end_time) { 1.0002 }
 
@@ -17,6 +17,7 @@ describe Swaggie::AbstractORMAdapter do
       sql_statement.statement.should == sql
       sql_statement.start_time.should == start_time
       sql_statement.end_time.should == end_time
+      sql_statement.trace.class.should == Array
     end
 
   end

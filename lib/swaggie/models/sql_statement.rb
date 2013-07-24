@@ -1,7 +1,10 @@
+require 'json'
+
 Swaggie::DB.create_table(:sql_statements) do
   primary_key :id
 
   String :statement, :text => true
+  String :trace_json, :text => true
   Float :start_time
   Float :end_time
 end
@@ -20,6 +23,10 @@ class Swaggie::SQLStatement < Sequel::Model
 
   def digitless
     without_digits = stripped_statement.gsub(/\d+/, DIGIT_MARKER)
+  end
+
+  def trace
+    JSON.parse(trace_json)
   end
 
 end

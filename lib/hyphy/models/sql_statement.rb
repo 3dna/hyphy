@@ -15,7 +15,7 @@ class Hyphy::SQLStatement < Sequel::Model
   DIGIT_MARKER = '<digit>'
 
   def duration
-    end_time - start_time
+    @duration ||= (end_time - start_time)
   end
 
   def stripped_statement

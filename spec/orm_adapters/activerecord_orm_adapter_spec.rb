@@ -11,11 +11,10 @@ describe Hyphy::ActiveRecordAdapter do
     it "should catch sql.active_record notifications" do
       ActiveSupport::Notifications.should_receive(:subscribe)
         .and_yield(nil, start_time, end_time, nil, { :sql => sql_statement })
-      Hyphy::ActiveRecordAdapter.should_receive(:log_sql).with(sql_statement,
-                                                               start_time,
-                                                               end_time)
 
-      Hyphy::ActiveRecordAdapter.subscribe_to_sql_notifications
+      callback = lambda { |a, b, c| }
+
+      Hyphy::ActiveRecordAdapter.subscribe_to_sql_notifications(callback)
     end
 
   end

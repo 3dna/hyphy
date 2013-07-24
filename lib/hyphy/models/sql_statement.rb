@@ -31,6 +31,7 @@ class Hyphy::SQLStatement < Sequel::Model
   end
 
   def metadata
+    return {} unless metadata_json
     JSON.parse(metadata_json)
   end
 

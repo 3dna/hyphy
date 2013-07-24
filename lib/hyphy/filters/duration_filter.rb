@@ -10,11 +10,11 @@ class Hyphy::DurationFilter < Hyphy::AbstractFilter
   end
 
   def filter
-    new_dataset = @dataset.select do |sql_statement|
+    @dataset.select! do |sql_statement|
       (@duration_min <= sql_statement.duration) and (sql_statement.duration <= @duration_max)
     end
 
-    new_dataset.sort_by { |sql_statement| -sql_statement.duration }
+    @dataset.sort_by! { |sql_statement| -sql_statement.duration }
   end
 
 end

@@ -8,7 +8,7 @@ class Hyphy::Dataset
 
   def apply_filter(filter_class, opts={})
     filter = filter_class.new(@data, opts)
-    @data = filter.filter
+    filter.filter
   end
 
 end

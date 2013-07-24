@@ -23,8 +23,7 @@ describe Swaggie::DurationFilter do
   describe "#filter" do
 
     it 'only returns the sql statements that last longer than one second' do
-      Swaggie::DurationFilter::DURATION_MIN = 1.0
-      dataset.apply_filter(Swaggie::DurationFilter)
+      dataset.apply_filter(Swaggie::DurationFilter, :duration_min => 1.0)
 
       dataset.data.should == [sql_statement4, sql_statement3]
     end

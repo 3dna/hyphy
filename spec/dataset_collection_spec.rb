@@ -27,10 +27,10 @@ describe Hyphy::DatasetCollection do
     before(:each) { dataset_collection.process_dataset }
 
     it "maps the correct statements to counts" do
-      puts dataset_collection.counts_hash.should ==
+      dataset_collection.counts_hash.should ==
         { "select * from table where id = 4" => 1,
-        "select * from table where id = 7" => 1,
-        "select * from table" => 1 }
+          "select * from table where id = 7" => 1,
+          "select * from table" => 1 }
     end
 
   end

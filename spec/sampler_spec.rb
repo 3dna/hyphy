@@ -75,4 +75,26 @@ describe Hyphy::Sampler do
 
   end
 
+  describe "#stop" do
+
+    it 'unsubscribes SQL notifications' do
+      subscriber = sampler.begin
+      Hyphy::ActiveRecordAdapter.should_receive(:unsubscribe_to_sql_notifications)
+        .with(subscriber)
+
+      sampler.stop
+    end
+
+  end
+
+  describe "#reset" do
+
+    it "trancates the sql_statements table" do
+      Hyphy::SQLStatement.should_receive(:truncate_table)
+
+      sampler.reset
+    end
+
+  end
+
 end

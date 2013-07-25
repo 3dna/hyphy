@@ -19,4 +19,16 @@ describe Hyphy::ActiveRecordAdapter do
 
   end
 
+  describe ".unsubscribe_to_sql_notifications" do
+
+    it "unsubscribes subscriber notifications from ActiveSupport"do
+      subscriber = double()
+      ActiveSupport::Notifications.should_receive(:unsubscribe)
+        .with(subscriber)
+
+      Hyphy::ActiveRecordAdapter.unsubscribe_to_sql_notifications(subscriber)
+    end
+
+  end
+
 end

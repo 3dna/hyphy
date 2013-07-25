@@ -12,4 +12,8 @@ class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
     end
   end
 
+  def self.unsubscribe_to_sql_notifications(subscriber)
+    ActiveSupport::Notifications.unsubscribe(subscriber)
+  end
+
 end

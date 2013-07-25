@@ -41,7 +41,15 @@ class Hyphy::Sampler
   end
 
   def begin
-    @orm_adapter.subscribe_to_sql_notifications(method(:sample))
+    @subscriber = @orm_adapter.subscribe_to_sql_notifications(method(:sample))
+  end
+
+  def stop
+    @orm_adapter.unsubscribe_to_sql_notifications(@subscriber)
+  end
+
+  def reset
+    Hyphy::SQLStatement.truncate_table
   end
 
 end

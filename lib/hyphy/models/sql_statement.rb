@@ -19,31 +19,34 @@ class Hyphy::SQLStatement < Sequel::Model
   end
 
   def stripped_statement
-    statement.strip
+    @stripped_statement ||= statement.strip
   end
 
   def digitless
-    without_digits = stripped_statement.gsub(/\d+/, DIGIT_MARKER)
+    @digitless ||= stripped_statement.gsub(/\d+/, DIGIT_MARKER)
   end
 
   def trace
-    JSON.parse(trace_json)
+    @trace ||= JSON.parse(trace_json)
   end
 
   def application_trace
+    return @application_trace if @application_trace
+
     regex = Regexp.new("^#{Dir.pwd}")
-    trace.select { |line| regex.match(line) }
+    @application_trace ||= trace.select { |line| regex.match(line) }
   end
 
   def metadata
     return {} unless metadata_json
-    JSON.parse(metadata_json)
+    @metadata ||= JSON.parse(metadata_json)
   end
 
   def add_metadata(key, value)
     new_metadata = metadata
     new_metadata[key] = value
     self.metadata_json = JSON(new_metadata)
+    @metadata = nil
     save
   end
 

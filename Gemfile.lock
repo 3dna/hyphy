@@ -47,6 +47,7 @@ GEM
       multi_json (~> 1.0)
       multi_xml (~> 0.5)
       rack (~> 1.2)
+    oj (2.1.4)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -81,6 +82,7 @@ DEPENDENCIES
   bundler
   database_cleaner
   jeweler
+  oj
   pry-nav
   rdoc
   rspec

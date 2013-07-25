@@ -1,4 +1,4 @@
-require 'json'
+require 'oj'
 
 require "spec_helper"
 
@@ -8,8 +8,8 @@ describe Hyphy::SQLStatement do
   let(:sql_statement) { Hyphy::SQLStatement.new(:statement => statement,
                                                 :start_time => 2,
                                                 :end_time => 3.001,
-                                                :trace_json => JSON(["hello!"]),
-                                                :metadata_json => JSON({ "hello!" => "hi!" })) }
+                                                :trace_json => Oj.dump(["hello!"]),
+                                                :metadata_json => Oj.dump({ "hello!" => "hi!" })) }
 
   describe "#duration" do
 

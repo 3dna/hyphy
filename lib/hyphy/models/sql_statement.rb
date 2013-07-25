@@ -1,4 +1,4 @@
-require 'json'
+require 'oj'
 
 Hyphy::DB.create_table(:sql_statements) do
   primary_key :id
@@ -27,7 +27,7 @@ class Hyphy::SQLStatement < Sequel::Model
   end
 
   def trace
-    @trace ||= JSON.parse(trace_json)
+    @trace ||= Oj.load(trace_json)
   end
 
   def application_trace
@@ -39,13 +39,13 @@ class Hyphy::SQLStatement < Sequel::Model
 
   def metadata
     return {} unless metadata_json
-    @metadata ||= JSON.parse(metadata_json)
+    @metadata ||= Oj.load(metadata_json)
   end
 
   def add_metadata(key, value)
     new_metadata = metadata
     new_metadata[key] = value
-    self.metadata_json = JSON(new_metadata)
+    self.metadata_json = Oj.dump(new_metadata)
     @metadata = nil
     save
   end

@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Huie"]
-  s.date = "2013-07-24"
+  s.date = "2013-07-25"
   s.description = "Identify SQL bottlenecks in tests"
   s.email = "david@nationbuilder.com"
   s.extra_rdoc_files = [
@@ -61,6 +61,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<sequel>, [">= 0"])
       s.add_runtime_dependency(%q<sqlite3>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, ["~> 3.2"])
+      s.add_runtime_dependency(%q<oj>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<database_cleaner>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
@@ -72,6 +73,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<sequel>, [">= 0"])
       s.add_dependency(%q<sqlite3>, [">= 0"])
       s.add_dependency(%q<activesupport>, ["~> 3.2"])
+      s.add_dependency(%q<oj>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<database_cleaner>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -84,6 +86,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<sequel>, [">= 0"])
     s.add_dependency(%q<sqlite3>, [">= 0"])
     s.add_dependency(%q<activesupport>, ["~> 3.2"])
+    s.add_dependency(%q<oj>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<database_cleaner>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])

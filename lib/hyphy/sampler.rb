@@ -1,3 +1,5 @@
+require 'oj'
+
 class Hyphy::Sampler
 
   attr_reader :orm_adapter, :metadata_callbacks
@@ -20,7 +22,7 @@ class Hyphy::Sampler
     Hyphy::SQLStatement.create(:statement => statement,
                                :start_time => start_time,
                                :end_time => end_time,
-                               :trace_json => JSON(caller))
+                               :trace_json => Oj.dump(caller))
   end
 
   def process_metadata(sql_statement)

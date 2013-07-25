@@ -30,6 +30,11 @@ class Hyphy::SQLStatement < Sequel::Model
     JSON.parse(trace_json)
   end
 
+  def application_trace
+    regex = Regexp.new("^#{Dir.pwd}")
+    trace.select { |line| regex.match(line) }
+  end
+
   def metadata
     return {} unless metadata_json
     JSON.parse(metadata_json)

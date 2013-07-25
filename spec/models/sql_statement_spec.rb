@@ -48,6 +48,17 @@ describe Hyphy::SQLStatement do
 
   end
 
+  describe "#application_trace" do
+
+    it "returns the trace lines that are related to the running application" do
+      sql_statement.stub(:trace).and_return(['/1', '/2', '/3'])
+      Dir.stub(:pwd).and_return('/1')
+
+      sql_statement.application_trace.should == ['/1']
+    end
+
+  end
+
   describe ".truncate_table" do
 
     it 'should clear all sql_statements rows' do

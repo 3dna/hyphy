@@ -1,13 +1,13 @@
 class Hyphy::AbstractFilter
 
-  attr_reader :dataset
+  attr_reader :data
 
-  def initialize(dataset, opts={})
-    @dataset = dataset
+  def initialize(data, opts={})
+    @data = data
   end
 
   def filter
-    @dataset
+    @data
   end
 
 end

@@ -2,7 +2,7 @@ class Hyphy::DurationFilter < Hyphy::AbstractFilter
 
   attr_reader :duration_min, :duration_max
 
-  def initialize(dataset, opts)
+  def initialize(data, opts)
     @duration_min = opts[:duration_min] || 0.0
     @duration_max = opts[:duration_max] || Float::INFINITY
 
@@ -10,11 +10,11 @@ class Hyphy::DurationFilter < Hyphy::AbstractFilter
   end
 
   def filter
-    @dataset.select! do |sql_statement|
+    @data.select! do |sql_statement|
       (@duration_min <= sql_statement.duration) and (sql_statement.duration <= @duration_max)
     end
 
-    @dataset.sort_by! { |sql_statement| -sql_statement.duration }
+    @data.sort_by! { |sql_statement| -sql_statement.duration }
   end
 
 end

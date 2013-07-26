@@ -1,13 +1,13 @@
 class Hyphy::BenchmarkFilter < Hyphy::AbstractFilter
 
-  def initialize(dataset, opts)
+  def initialize(data, opts)
     @runs = opts[:runs] || 1
 
     super
   end
 
   def filter
-    @dataset.data.each do |sql_statement|
+    @data.each do |sql_statement|
       timing = self.class.benchmark(sql_statement, @runs)
 
       sql_statement.add_metadata('benchmark_runs',

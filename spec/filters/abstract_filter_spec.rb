@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe Hyphy::AbstractFilter do
 
-  it 'stores a dataset' do
-    dataset = [1, 2]
-    filter = Hyphy::AbstractFilter.new(dataset)
+  it 'stores data' do
+    data = [1, 2]
+    filter = Hyphy::AbstractFilter.new(data)
 
-    filter.dataset.should == dataset
-    filter.filter.should == dataset
+    filter.data.should == data
+    filter.filter.should == data
   end
 
 end

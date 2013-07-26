@@ -10,18 +10,18 @@ describe Hyphy::BenchmarkFilter do
 
     Hyphy::AbstractORMAdapter.stub(:time_statement).and_return(*@sql_statement_times)
 
-    @dataset = Hyphy::Dataset.new
-    @filter = Hyphy::BenchmarkFilter.new(@dataset, :runs => @runs)
+    @data = [@sql_statement]
+    @filter = Hyphy::BenchmarkFilter.new(@data, :runs => @runs)
     @average_time = @sql_statement_times.reduce(:+) / @runs
   end
 
   describe "#filter" do
 
-    it "modifies the dataset to include benchmark data" do
+    it "modifies the data to include benchmark data" do
       @filter.filter
 
-      @dataset.data[0].metadata['benchmark_runs'].should == @runs
-      @dataset.data[0].metadata['benchmark_time'].should == @average_time
+      @data[0].metadata['benchmark_runs'].should == @runs
+      @data[0].metadata['benchmark_time'].should == @average_time
     end
 
   end

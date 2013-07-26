@@ -1,6 +1,6 @@
 class Hyphy::Dataset
 
-  attr_reader :data
+  attr_accessor :data
 
   def initialize(data=nil)
     @data = data || Hyphy::SQLStatement.all

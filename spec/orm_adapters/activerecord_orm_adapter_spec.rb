@@ -3,6 +3,7 @@ require "spec_helper"
 describe Hyphy::ActiveRecordAdapter do
 
   let(:sql_statement) { 'select count(*) from victims' }
+  let(:sampler) { Hyphy::Sampler.new }
   let(:start_time) { 1.0001 }
   let(:end_time) { 1.0002 }
 
@@ -12,7 +13,7 @@ describe Hyphy::ActiveRecordAdapter do
       ActiveSupport::Notifications.should_receive(:subscribe)
         .and_yield(nil, start_time, end_time, nil, { :sql => sql_statement })
 
-      callback = lambda { |a, b, c, d| }
+      callback = sampler.method(:sample)
 
       Hyphy::ActiveRecordAdapter.subscribe_to_sql_notifications(callback)
     end

@@ -31,4 +31,16 @@ describe Hyphy::ActiveRecordAdapter do
 
   end
 
+  describe ".time_statement" do
+
+    it "Returns a float time value that represents the duration of a statement" do
+      ActiveRecord::Base.stub(:connection).stub(:execute)
+      Benchmark.stub(:realtime).and_return(3.0)
+
+      Hyphy::ActiveRecordAdapter.time_statement('select * from table')
+        .should == 3.0
+    end
+
+  end
+
 end

@@ -4,4 +4,6 @@ class Hyphy::AbstractORMAdapter
 
   def self.unsubscribe_to_sql_notifications(subscriber); end
 
+  def self.time_statement(statement); end
+
 end

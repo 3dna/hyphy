@@ -1,4 +1,6 @@
+require 'active_record'
 require 'active_support/notifications'
+require 'benchmark'
 
 class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
 
@@ -14,6 +16,10 @@ class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
 
   def self.unsubscribe_to_sql_notifications(subscriber)
     ActiveSupport::Notifications.unsubscribe(subscriber)
+  end
+
+  def self.time_statement(statement)
+    Benchmark.realtime { ActiveRecord::Base.connection.execute(statement) }
   end
 
 end

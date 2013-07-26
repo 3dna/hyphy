@@ -12,7 +12,7 @@ describe Hyphy::ActiveRecordAdapter do
       ActiveSupport::Notifications.should_receive(:subscribe)
         .and_yield(nil, start_time, end_time, nil, { :sql => sql_statement })
 
-      callback = lambda { |a, b, c| }
+      callback = lambda { |a, b, c, d| }
 
       Hyphy::ActiveRecordAdapter.subscribe_to_sql_notifications(callback)
     end

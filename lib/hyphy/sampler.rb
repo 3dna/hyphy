@@ -18,10 +18,11 @@ class Hyphy::Sampler
     @metadata_callbacks = {}
   end
 
-  def log_sql(statement, start_time, end_time)
+  def log_sql(statement, start_time, end_time, orm_adapter)
     Hyphy::SQLStatement.create(:statement => statement,
                                :start_time => start_time,
                                :end_time => end_time,
+                               :orm_adapter => orm_adapter,
                                :trace_json => Oj.dump(caller))
   end
 

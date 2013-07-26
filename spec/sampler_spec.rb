@@ -30,13 +30,15 @@ describe Hyphy::Sampler do
     it 'creates a new SQLStatement row' do
       sampler.log_sql(statement,
                       start_time,
-                      end_time)
+                      end_time,
+                      Hyphy::ActiveRecordAdapter)
 
       sql_statement = Hyphy::SQLStatement.last
       sql_statement.statement.should == statement
       sql_statement.start_time.should == start_time
       sql_statement.end_time.should == end_time
       sql_statement.trace.class.should == Array
+      sql_statement.orm_adapter.should == Hyphy::ActiveRecordAdapter
     end
 
   end

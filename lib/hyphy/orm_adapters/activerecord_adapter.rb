@@ -10,7 +10,7 @@ class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
       start_time = args[1]
       end_time = args[2]
 
-      callback.call(sql_statement, start_time, end_time)
+      callback.call(sql_statement, start_time, end_time, self)
     end
   end
 

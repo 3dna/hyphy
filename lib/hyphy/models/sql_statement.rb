@@ -6,6 +6,7 @@ Hyphy::DB.create_table(:sql_statements) do
   String :statement, :text => true
   String :trace_json, :text => true
   String :metadata_json, :text => true
+  String :orm_adapter_string
   Float :start_time
   Float :end_time
 end
@@ -52,6 +53,14 @@ class Hyphy::SQLStatement < Sequel::Model
 
   def self.truncate_table
     Hyphy::DB[:sql_statements].truncate
+  end
+
+  def orm_adapter
+    @orm_adapter ||= eval(orm_adapter_string)
+  end
+
+  def orm_adapter=(adapter)
+    self.orm_adapter_string = adapter.to_s
   end
 
 end

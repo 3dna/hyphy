@@ -46,7 +46,11 @@ describe Hyphy::Sampler do
   describe "#sample" do
 
     it "logs the SQL statement and adds metadata" do
-      sampler.should_receive(:log_sql).with(statement, start_time, end_time)
+      sampler.should_receive(:log_sql).with(statement,
+                                            start_time,
+                                            end_time,
+                                            Hyphy::ActiveRecordAdapter)
+
       sampler.should_receive(:process_metadata)
 
       sampler.sample(statement, start_time, end_time)

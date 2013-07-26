@@ -33,7 +33,7 @@ class Hyphy::Sampler
   end
 
   def sample(statement, start_time, end_time)
-    sql_statement = log_sql(statement, start_time, end_time)
+    sql_statement = log_sql(statement, start_time, end_time, @orm_adapter)
     process_metadata(sql_statement)
   end
 

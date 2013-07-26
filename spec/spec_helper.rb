@@ -15,15 +15,15 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 RSpec.configure do |config|
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner[:sequel].strategy = :transaction
   end
 
   config.before(:each) do
-    DatabaseCleaner.start
+    DatabaseCleaner[:sequel].start
   end
 
   config.after(:each) do
-    DatabaseCleaner.clean
+    DatabaseCleaner[:sequel].clean
   end
 
 end

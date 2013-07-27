@@ -89,4 +89,29 @@ describe Hyphy::SQLStatement do
 
   end
 
+  describe "statement methods" do
+
+    let(:sql_statement1) { Hyphy::SQLStatement.create(:statement => "select * from table") }
+    let(:sql_statement2) { Hyphy::SQLStatement.create(:statement => "insert into table values 1, 2, 3") }
+
+    describe "#select?" do
+
+      it "is true for a select statement" do
+        sql_statement1.select?.should be_true
+        sql_statement2.select?.should be_false
+      end
+
+    end
+
+    describe "#insert?" do
+
+      it "is true for a insert statement" do
+        sql_statement1.insert?.should be_false
+        sql_statement2.insert?.should be_true
+      end
+
+    end
+
+  end
+
 end

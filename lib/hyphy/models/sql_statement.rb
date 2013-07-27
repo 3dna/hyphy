@@ -23,6 +23,14 @@ class Hyphy::SQLStatement < Sequel::Model
     @stripped_statement ||= statement.strip
   end
 
+  def select?
+    @select ||= stripped_statement.upcase.match(/^SELECT/)
+  end
+
+  def insert?
+    @insert ||= stripped_statement.upcase.match(/^INSERT/)
+  end
+
   def digitless
     @digitless ||= stripped_statement.gsub(/\d+/, DIGIT_MARKER)
   end

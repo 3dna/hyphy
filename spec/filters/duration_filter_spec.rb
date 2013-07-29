@@ -14,9 +14,13 @@ describe Hyphy::DurationFilter do
                                                      :start_time => 2.0,
                                                      :end_time => 3.0) }
 
-  let!(:sql_statement4) { Hyphy::SQLStatement.create(:statement => 'select count(*) from table4',
-                                                     :start_time => 3.0,
-                                                     :end_time => 10.0) }
+  let!(:sql_statement4) do
+    statement = Hyphy::SQLStatement.create(:statement => 'select count(*) from table4',
+                                           :start_time => 3.0,
+                                           :end_time => 10.0)
+    statement.add_metadata('benchmark_time', 7)
+    statement
+  end
 
   let(:dataset) { Hyphy::Dataset.new }
 
@@ -26,6 +30,14 @@ describe Hyphy::DurationFilter do
       dataset.apply_filter(Hyphy::DurationFilter, :duration_min => 1.0)
 
       dataset.data.should == [sql_statement4, sql_statement3]
+    end
+
+    it 'returns the sql statements that have a benchmark time longer than one second' do
+      dataset.apply_filter(Hyphy::DurationFilter,
+                           :benchmark => true,
+                           :duration_min => 1.0)
+
+      dataset.data.should == [sql_statement4]
     end
 
   end

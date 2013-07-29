@@ -25,7 +25,8 @@ class Hyphy::BenchmarkFilter < Hyphy::AbstractFilter
     end
 
     # Calculate the average
-    times.reduce(:+) / times.count
+    average = times.reduce(:+) / times.count
+    average.to_f
   end
 
 end

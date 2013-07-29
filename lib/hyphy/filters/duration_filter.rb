@@ -8,7 +8,7 @@ class Hyphy::DurationFilter < Hyphy::AbstractFilter
     @benchmark = opts[:benchmark] || false
 
     if @benchmark
-      @duration = lambda { |sql_statement| sql_statement.metadata['benchmark_time'] }
+      @duration = lambda { |sql_statement| sql_statement.metadata['benchmark_time'].to_f }
     else
       @duration = lambda { |sql_statement| sql_statement.duration }
     end

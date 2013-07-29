@@ -21,7 +21,7 @@ class Hyphy::BenchmarkFilter < Hyphy::AbstractFilter
     times = []
 
     (1..runs).each do
-      times << sql_statement.orm_adapter.time_statement(sql_statement.statement)
+      times << sql_statement.orm_adapter.time_statement(sql_statement)
     end
 
     # Calculate the average

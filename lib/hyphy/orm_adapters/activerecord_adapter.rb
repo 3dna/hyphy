@@ -6,11 +6,14 @@ class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
 
   def self.subscribe_to_sql_notifications(callback)
     ActiveSupport::Notifications.subscribe('sql.active_record') do |*args|
-      sql_statement = args[4][:sql]
+      sql = args[4][:sql]
+      binds = args[4][:binds]
       start_time = args[1]
       end_time = args[2]
 
-      callback.call(sql_statement, start_time, end_time)
+      sql_statement = callback.call(sql, start_time, end_time)
+      sql_statement.binds = binds
+      sql_statement.save
     end
   end
 
@@ -18,8 +21,14 @@ class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
     ActiveSupport::Notifications.unsubscribe(subscriber)
   end
 
-  def self.time_statement(statement)
-    Benchmark.realtime { ActiveRecord::Base.connection.execute(statement) }
+  def self.time_statement(sql_statement)
+    ActiveRecord::Base.connection.clear_query_cache
+
+    binds = sql_statement.binds
+    Benchmark.realtime { ActiveRecord::Base.connection.send(:exec_query,
+                                                            sql_statement.statement,
+                                                            'SQL',
+                                                            binds) }
   end
 
 end

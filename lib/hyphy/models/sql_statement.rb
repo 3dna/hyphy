@@ -6,6 +6,7 @@ Hyphy::DB.create_table(:sql_statements) do
   String :statement, :text => true
   String :trace_json, :text => true
   String :metadata_json, :text => true
+  Blob :marshalled_binds
   String :orm_adapter_string
   Float :start_time
   Float :end_time
@@ -69,6 +70,14 @@ class Hyphy::SQLStatement < Sequel::Model
 
   def orm_adapter=(adapter)
     self.orm_adapter_string = adapter.to_s
+  end
+
+  def binds
+    @binds ||= Marshal.load(self.marshalled_binds)
+  end
+
+  def binds=(sql_binds)
+    self.marshalled_binds = Marshal.dump(sql_binds)
   end
 
 end

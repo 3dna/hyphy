@@ -11,7 +11,11 @@ describe Hyphy::ActiveRecordAdapter do
 
     it "should catch sql.active_record notifications" do
       ActiveSupport::Notifications.should_receive(:subscribe)
-        .and_yield(nil, start_time, end_time, nil, { :sql => sql_statement })
+        .and_yield(nil,
+                   start_time,
+                   end_time,
+                   nil, { :sql => sql_statement,
+                          :binds => [] })
 
       callback = sampler.method(:sample)
 
@@ -35,10 +39,13 @@ describe Hyphy::ActiveRecordAdapter do
   describe ".time_statement" do
 
     it "Returns a float time value that represents the duration of a statement" do
-      ActiveRecord::Base.stub(:connection).stub(:execute)
-      Benchmark.stub(:realtime).and_return(3.0)
+      ActiveRecord::Base.stub_chain(:connection, :clear_query_cache)
 
-      Hyphy::ActiveRecordAdapter.time_statement('select * from table')
+      Benchmark.stub(:realtime).and_return(3.0)
+      Marshal.stub(:load).and_return([])
+      sql_statement = Hyphy::SQLStatement.new(:statement => 'select * from table')
+
+      Hyphy::ActiveRecordAdapter.time_statement(sql_statement)
         .should == 3.0
     end
 

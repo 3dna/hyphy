@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Hyphy::SQLFilter do
 
   before(:each) do
-    @sql_statement1 = Hyphy::SQLStatement.create(:statement => "select * from table")
-    @sql_statement2 = Hyphy::SQLStatement.create(:statement => "insert into table values 1, 2, 3")
+    @sql_statement1 = Hyphy::SQLStatement.new(:statement => "select * from table")
+    @sql_statement2 = Hyphy::SQLStatement.new(:statement => "insert into table values 1, 2, 3")
     @data = [@sql_statement1, @sql_statement2]
   end
 

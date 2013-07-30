@@ -29,7 +29,6 @@ Gem::Specification.new do |s|
     "VERSION",
     "hyphy.gemspec",
     "lib/hyphy.rb",
-    "lib/hyphy/database.rb",
     "lib/hyphy/dataset.rb",
     "lib/hyphy/filters/abstract_filter.rb",
     "lib/hyphy/filters/benchmark_filter.rb",
@@ -62,26 +61,18 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<sequel>, [">= 0"])
-      s.add_runtime_dependency(%q<sqlite3>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, ["~> 3.2"])
       s.add_runtime_dependency(%q<activerecord>, ["~> 3.2"])
-      s.add_runtime_dependency(%q<oj>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
-      s.add_development_dependency(%q<database_cleaner>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<pry-nav>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
     else
-      s.add_dependency(%q<sequel>, [">= 0"])
-      s.add_dependency(%q<sqlite3>, [">= 0"])
       s.add_dependency(%q<activesupport>, ["~> 3.2"])
       s.add_dependency(%q<activerecord>, ["~> 3.2"])
-      s.add_dependency(%q<oj>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
-      s.add_dependency(%q<database_cleaner>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<pry-nav>, [">= 0"])
       s.add_dependency(%q<rdoc>, [">= 0"])
@@ -89,13 +80,9 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<simplecov>, [">= 0"])
     end
   else
-    s.add_dependency(%q<sequel>, [">= 0"])
-    s.add_dependency(%q<sqlite3>, [">= 0"])
     s.add_dependency(%q<activesupport>, ["~> 3.2"])
     s.add_dependency(%q<activerecord>, ["~> 3.2"])
-    s.add_dependency(%q<oj>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
-    s.add_dependency(%q<database_cleaner>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<pry-nav>, [">= 0"])
     s.add_dependency(%q<rdoc>, [">= 0"])

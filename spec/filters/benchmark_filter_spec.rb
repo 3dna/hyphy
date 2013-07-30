@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Hyphy::BenchmarkFilter do
 
   before(:each) do
-    @sql_statement = Hyphy::SQLStatement.create(:statement => 'select * from table',
-                                                :orm_adapter => Hyphy::AbstractORMAdapter)
+    @sql_statement = Hyphy::SQLStatement.new(:statement => 'select * from table',
+                                             :orm_adapter => Hyphy::AbstractORMAdapter)
     @sql_statement_times = [1.0, 2.0, 3.0]
     @runs = @sql_statement_times.count
 

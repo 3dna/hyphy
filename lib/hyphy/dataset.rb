@@ -2,8 +2,8 @@ class Hyphy::Dataset
 
   attr_accessor :data
 
-  def initialize(data=nil)
-    @data = data || Hyphy::SQLStatement.all
+  def initialize(data=[])
+    @data = data
   end
 
   def apply_filter(filter_class, opts={})

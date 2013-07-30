@@ -3,7 +3,6 @@ SimpleCov.start
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'database_cleaner'
 require 'pry-nav'
 require 'rspec'
 require 'hyphy'
@@ -15,15 +14,12 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 RSpec.configure do |config|
 
   config.before(:suite) do
-    DatabaseCleaner[:sequel].strategy = :transaction
   end
 
   config.before(:each) do
-    DatabaseCleaner[:sequel].start
   end
 
   config.after(:each) do
-    DatabaseCleaner[:sequel].clean
   end
 
 end

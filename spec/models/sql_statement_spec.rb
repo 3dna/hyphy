@@ -1,5 +1,3 @@
-require 'oj'
-
 require "spec_helper"
 
 describe Hyphy::SQLStatement do
@@ -8,8 +6,8 @@ describe Hyphy::SQLStatement do
   let(:sql_statement) { Hyphy::SQLStatement.new(:statement => statement,
                                                 :start_time => 2,
                                                 :end_time => 3.001,
-                                                :trace_json => Oj.dump(["hello!"]),
-                                                :metadata_json => Oj.dump({ "hello!" => "hi!" })) }
+                                                :trace => ["hello!"],
+                                                :metadata => { "hello!" => "hi!" }) }
 
   describe "#duration" do
 
@@ -59,18 +57,6 @@ describe Hyphy::SQLStatement do
 
   end
 
-  describe ".truncate_table" do
-
-    it 'should clear all sql_statements rows' do
-      Hyphy::SQLStatement.create
-      Hyphy::SQLStatement.all.count.should == 1
-
-      Hyphy::SQLStatement.truncate_table
-      Hyphy::SQLStatement.all.count.should == 0
-    end
-
-  end
-
   describe "#metadata" do
 
     it 'should return the decoded json from the metadata_json attribute' do
@@ -82,7 +68,7 @@ describe Hyphy::SQLStatement do
   describe "#add_metadata" do
 
     it "should store the key, value pair in the metadata" do
-      sql_statement.add_metadata("key", "value")
+      sql_statement.metadata["key"] = "value"
 
       sql_statement.metadata["key"].should == "value"
     end
@@ -91,8 +77,8 @@ describe Hyphy::SQLStatement do
 
   describe "statement methods" do
 
-    let(:sql_statement1) { Hyphy::SQLStatement.create(:statement => "select * from table") }
-    let(:sql_statement2) { Hyphy::SQLStatement.create(:statement => "insert into table values 1, 2, 3") }
+    let(:sql_statement1) { Hyphy::SQLStatement.new(:statement => "select * from table") }
+    let(:sql_statement2) { Hyphy::SQLStatement.new(:statement => "insert into table values 1, 2, 3") }
 
     describe "#select?" do
 

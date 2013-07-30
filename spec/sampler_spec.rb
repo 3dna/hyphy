@@ -33,7 +33,7 @@ describe Hyphy::Sampler do
                       end_time,
                       Hyphy::ActiveRecordAdapter)
 
-      sql_statement = Hyphy::SQLStatement.last
+      sql_statement = sampler.dataset.data.last
       sql_statement.statement.should == statement
       sql_statement.start_time.should == start_time
       sql_statement.end_time.should == end_time
@@ -70,7 +70,7 @@ describe Hyphy::Sampler do
 
   describe "#process_metadata" do
 
-    let(:sql_statement) { Hyphy::SQLStatement.create }
+    let(:sql_statement) { Hyphy::SQLStatement.new }
 
     it "adds metadata from a proc to a SQLStatement" do
       sampler.add_metadata("test") { "this is just a test!" }

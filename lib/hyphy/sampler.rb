@@ -1,8 +1,6 @@
-require 'oj'
-
 class Hyphy::Sampler
 
-  attr_reader :orm_adapter, :metadata_callbacks
+  attr_reader :orm_adapter, :metadata_callbacks, :dataset
 
   class UnsupportedORMException < Exception; end
 
@@ -15,20 +13,23 @@ class Hyphy::Sampler
       raise UnsupportedORMException, 'ORM #{orm} is not supported'
     end
 
+    @dataset = Hyphy::Dataset.new
     @metadata_callbacks = {}
   end
 
   def log_sql(statement, start_time, end_time, orm_adapter)
-    Hyphy::SQLStatement.create(:statement => statement,
-                               :start_time => start_time,
-                               :end_time => end_time,
-                               :orm_adapter => orm_adapter,
-                               :trace_json => Oj.dump(caller))
+    sql_statement = Hyphy::SQLStatement.new(:statement => statement,
+                                             :start_time => start_time,
+                                             :end_time => end_time,
+                                             :orm_adapter => orm_adapter,
+                                             :trace => caller)
+    @dataset.data << sql_statement
+    sql_statement
   end
 
   def process_metadata(sql_statement)
     @metadata_callbacks.each do |key, value_block|
-      sql_statement.add_metadata(key, value_block.call)
+      sql_statement.metadata[key] = value_block.call
     end
   end
 
@@ -54,10 +55,6 @@ class Hyphy::Sampler
     self.begin
     yield
     self.stop
-  end
-
-  def reset
-    Hyphy::SQLStatement.truncate_table
   end
 
 end

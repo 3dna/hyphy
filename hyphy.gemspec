@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Huie"]
   s.date = "2013-07-30"
-  s.description = "Identify SQL bottlenecks in tests"
+  s.description = "Hyphy is a toolkit for identifying SQL bottlenecks in Ruby applications. Given\nan adapter for an ORM and a Ruby block, Hyphy collects all executed queries in\na dataset. Afterward, it can filter the dataset and even benchmark the queries."
   s.email = "david@nationbuilder.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -51,7 +51,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
-  s.summary = "Identify SQL bottlenecks in tests"
+  s.summary = "A SQL bottleneck toolkit"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

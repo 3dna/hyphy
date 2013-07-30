@@ -116,5 +116,14 @@ describe Hyphy::Sampler do
 
   end
 
+  describe "#profile" do
+
+    it "starts and stops the sampling"do
+      sampler.should_receive(:begin)
+      sampler.should_receive(:stop)
+      sampler.profile {}
+    end
+
+  end
 
 end

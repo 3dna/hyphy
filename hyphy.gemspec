@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
-    ".document",
     ".rspec",
     ".ruby-gemset",
     ".ruby-version",
@@ -46,8 +45,7 @@ Gem::Specification.new do |s|
     "spec/models/sql_statement_spec.rb",
     "spec/orm_adapters/activerecord_orm_adapter_spec.rb",
     "spec/sampler_spec.rb",
-    "spec/spec_helper.rb",
-    "specification.txt"
+    "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/3dna/hyphy"
   s.licenses = ["MIT"]

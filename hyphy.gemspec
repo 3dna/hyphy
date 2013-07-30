@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Huie"]
-  s.date = "2013-07-27"
+  s.date = "2013-07-30"
   s.description = "Identify SQL bottlenecks in tests"
   s.email = "david@nationbuilder.com"
   s.extra_rdoc_files = [
@@ -31,7 +31,6 @@ Gem::Specification.new do |s|
     "lib/hyphy.rb",
     "lib/hyphy/database.rb",
     "lib/hyphy/dataset.rb",
-    "lib/hyphy/dataset_collection.rb",
     "lib/hyphy/filters/abstract_filter.rb",
     "lib/hyphy/filters/benchmark_filter.rb",
     "lib/hyphy/filters/duration_filter.rb",
@@ -41,7 +40,6 @@ Gem::Specification.new do |s|
     "lib/hyphy/orm_adapters/abstract_orm_adapter.rb",
     "lib/hyphy/orm_adapters/activerecord_adapter.rb",
     "lib/hyphy/sampler.rb",
-    "spec/dataset_collection_spec.rb",
     "spec/dataset_spec.rb",
     "spec/filters/abstract_filter_spec.rb",
     "spec/filters/benchmark_filter_spec.rb",

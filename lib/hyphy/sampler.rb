@@ -20,10 +20,10 @@ class Hyphy::Sampler
 
   def log_sql(statement, start_time, end_time, orm_adapter)
     sql_statement = Hyphy::SQLStatement.new(:statement => statement,
-                                             :start_time => start_time,
-                                             :end_time => end_time,
-                                             :orm_adapter => orm_adapter,
-                                             :trace => caller)
+                                            :start_time => start_time,
+                                            :end_time => end_time,
+                                            :orm_adapter => orm_adapter,
+                                            :trace => caller)
     @dataset << sql_statement
     sql_statement
   end

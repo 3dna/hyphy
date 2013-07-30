@@ -8,7 +8,9 @@ class Hyphy::SQLStatement
                 :binds,
                 :orm_adapter,
                 :start_time,
-                :end_time)
+                :end_time,
+                :benchmark_runs,
+                :benchmark_time)
 
   def initialize(opts={})
     @statement = opts[:statement]

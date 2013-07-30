@@ -18,7 +18,7 @@ describe Hyphy::DurationFilter do
     @sql_statement4 = Hyphy::SQLStatement.new(:statement => 'select count(*) from table4',
                                               :start_time => 3.0,
                                               :end_time => 10.0)
-    @sql_statement4.metadata['benchmark_time'] = 7
+    @sql_statement4.benchmark_time = 7
 
     @sampler = Hyphy::Sampler.new
     @sampler.dataset = [@sql_statement1, @sql_statement2, @sql_statement3, @sql_statement4]

@@ -10,8 +10,8 @@ class Hyphy::BenchmarkFilter < Hyphy::AbstractFilter
     @data.each do |sql_statement|
       timing = self.class.benchmark(sql_statement, @runs)
 
-      sql_statement.metadata['benchmark_runs'] = @runs
-      sql_statement.metadata['benchmark_time'] = timing
+      sql_statement.benchmark_runs = @runs
+      sql_statement.benchmark_time = timing
     end
   end
 

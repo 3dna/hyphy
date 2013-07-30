@@ -20,8 +20,8 @@ describe Hyphy::BenchmarkFilter do
     it "modifies the data to include benchmark data" do
       @filter.filter
 
-      @data[0].metadata['benchmark_runs'].should == @runs
-      @data[0].metadata['benchmark_time'].should == @average_time
+      @data[0].benchmark_runs.should == @runs
+      @data[0].benchmark_time.should == @average_time
     end
 
   end

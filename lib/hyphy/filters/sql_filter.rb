@@ -1,4 +1,4 @@
-class Hyphy::SQLFilter < Hyphy::AbstractFilter
+class Hyphy::Filters::SQLFilter < Hyphy::Filters::AbstractFilter
 
   class IncorrectSQLTypeException < Exception; end
 

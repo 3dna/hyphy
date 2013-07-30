@@ -1,4 +1,4 @@
-class Hyphy::AbstractFilter
+class Hyphy::Filters::AbstractFilter
 
   attr_reader :data
 

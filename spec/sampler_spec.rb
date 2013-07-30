@@ -110,7 +110,7 @@ describe Hyphy::Sampler do
     end
 
     it "filters the in memory dataset" do
-      @sampler.apply_filter(Hyphy::DurationFilter, :duration_min => 1.5)
+      @sampler.apply_filter(Hyphy::Filters::DurationFilter, :duration_min => 1.5)
       @sampler.dataset.should == [@sql_statement2]
     end
 

@@ -1,4 +1,4 @@
-class Hyphy::BenchmarkFilter < Hyphy::AbstractFilter
+class Hyphy::Filters::BenchmarkFilter < Hyphy::Filters::AbstractFilter
 
   def initialize(data, opts)
     @runs = opts[:runs] || 1

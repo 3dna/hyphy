@@ -1,4 +1,4 @@
-class Hyphy::DurationFilter < Hyphy::AbstractFilter
+class Hyphy::Filters::DurationFilter < Hyphy::Filters::AbstractFilter
 
   attr_reader :duration_min, :duration_max
 

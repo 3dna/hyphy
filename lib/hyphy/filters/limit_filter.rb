@@ -1,4 +1,4 @@
-class Hyphy::LimitFilter < Hyphy::AbstractFilter
+class Hyphy::Filters::LimitFilter < Hyphy::Filters::AbstractFilter
 
   def initialize(data, opts)
     @limit = opts[:limit] || 10

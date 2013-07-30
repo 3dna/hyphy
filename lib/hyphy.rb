@@ -1,4 +1,5 @@
 module Hyphy; end
+module Hyphy::Filters; end
 
 require 'hyphy/sql_statement'
 require 'hyphy/orm_adapters/abstract_orm_adapter'

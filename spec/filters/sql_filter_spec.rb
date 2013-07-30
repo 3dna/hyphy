@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Hyphy::SQLFilter do
+describe Hyphy::Filters::SQLFilter do
 
   before(:each) do
     @sql_statement1 = Hyphy::SQLStatement.new(:statement => "select * from table")
@@ -11,8 +11,8 @@ describe Hyphy::SQLFilter do
   describe "#initialize" do
 
     it "throws an exception when an incorrect SQL statement type is provided" do
-      expect { Hyphy::SQLFilter.new(@data, :type => :lol) }
-        .to raise_error(Hyphy::SQLFilter::IncorrectSQLTypeException)
+      expect { Hyphy::Filters::SQLFilter.new(@data, :type => :lol) }
+        .to raise_error(Hyphy::Filters::SQLFilter::IncorrectSQLTypeException)
     end
 
   end
@@ -20,7 +20,7 @@ describe Hyphy::SQLFilter do
   describe "#filter" do
 
     it "filters the data to include SQL statements of the right type" do
-      sql_filter = Hyphy::SQLFilter.new(@data, :type => :select)
+      sql_filter = Hyphy::Filters::SQLFilter.new(@data, :type => :select)
       sql_filter.filter
 
       @data.should == [@sql_statement1]

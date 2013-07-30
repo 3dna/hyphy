@@ -33,7 +33,7 @@ describe Hyphy::Sampler do
                       end_time,
                       Hyphy::ActiveRecordAdapter)
 
-      sql_statement = sampler.dataset.data.last
+      sql_statement = sampler.dataset.last
       sql_statement.statement.should == statement
       sql_statement.start_time.should == start_time
       sql_statement.end_time.should == end_time
@@ -93,14 +93,28 @@ describe Hyphy::Sampler do
 
   end
 
-  describe "#reset" do
+  describe "#apply_filter" do
 
-    it "trancates the sql_statements table" do
-      Hyphy::SQLStatement.should_receive(:truncate_table)
+    before(:each) do
+      @sampler = Hyphy::Sampler.new
+      @sql_statement1 = Hyphy::SQLStatement.new(:statement => "select * from table1",
+                                                :start_time => 1.001,
+                                                :end_time => 2.002)
 
-      sampler.reset
+      @sql_statement2 = Hyphy::SQLStatement.new(:statement => "select * from table2",
+                                                :start_time => 1.001,
+                                                :end_time => 3.002)
+
+      @sampler.dataset << @sql_statement1
+      @sampler.dataset << @sql_statement2
+    end
+
+    it "filters the in memory dataset" do
+      @sampler.apply_filter(Hyphy::DurationFilter, :duration_min => 1.5)
+      @sampler.dataset.should == [@sql_statement2]
     end
 
   end
+
 
 end

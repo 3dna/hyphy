@@ -20,23 +20,24 @@ describe Hyphy::DurationFilter do
                                               :end_time => 10.0)
     @sql_statement4.metadata['benchmark_time'] = 7
 
-    @dataset = Hyphy::Dataset.new([@sql_statement1, @sql_statement2, @sql_statement3, @sql_statement4])
+    @sampler = Hyphy::Sampler.new
+    @sampler.dataset = [@sql_statement1, @sql_statement2, @sql_statement3, @sql_statement4]
   end
 
   describe "#filter" do
 
     it 'only returns the sql statements that last longer than one second' do
-      @dataset.apply_filter(Hyphy::DurationFilter, :duration_min => 1.0)
+      @sampler.apply_filter(Hyphy::DurationFilter, :duration_min => 1.0)
 
-      @dataset.data.should == [@sql_statement4, @sql_statement3]
+      @sampler.dataset.should == [@sql_statement4, @sql_statement3]
     end
 
     it 'returns the sql statements that have a benchmark time longer than one second' do
-      @dataset.apply_filter(Hyphy::DurationFilter,
+      @sampler.apply_filter(Hyphy::DurationFilter,
                            :benchmark => true,
                            :duration_min => 1.0)
 
-      @dataset.data.should == [@sql_statement4]
+      @sampler.dataset.should == [@sql_statement4]
     end
 
   end

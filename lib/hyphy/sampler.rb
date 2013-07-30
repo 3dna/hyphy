@@ -1,6 +1,7 @@
 class Hyphy::Sampler
 
-  attr_reader :orm_adapter, :metadata_callbacks, :dataset
+  attr_accessor :dataset
+  attr_reader :orm_adapter, :metadata_callbacks
 
   class UnsupportedORMException < Exception; end
 
@@ -13,7 +14,7 @@ class Hyphy::Sampler
       raise UnsupportedORMException, 'ORM #{orm} is not supported'
     end
 
-    @dataset = Hyphy::Dataset.new
+    @dataset = []
     @metadata_callbacks = {}
   end
 
@@ -23,7 +24,7 @@ class Hyphy::Sampler
                                              :end_time => end_time,
                                              :orm_adapter => orm_adapter,
                                              :trace => caller)
-    @dataset.data << sql_statement
+    @dataset << sql_statement
     sql_statement
   end
 
@@ -55,6 +56,11 @@ class Hyphy::Sampler
     self.begin
     yield
     self.stop
+  end
+
+  def apply_filter(filter_class, opts={})
+    filter = filter_class.new(@dataset, opts)
+    filter.filter
   end
 
 end

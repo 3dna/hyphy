@@ -50,6 +50,12 @@ class Hyphy::Sampler
     @orm_adapter.unsubscribe_to_sql_notifications(@subscriber)
   end
 
+  def profile
+    self.begin
+    yield
+    self.stop
+  end
+
   def reset
     Hyphy::SQLStatement.truncate_table
   end

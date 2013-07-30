@@ -17,9 +17,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/3dna/hyphy"
   gem.license = "MIT"
   gem.summary = %Q{A SQL bottleneck toolkit}
-  gem.description = %Q{Hyphy is a toolkit for identifying SQL bottlenecks in Ruby applications. Given
-an adapter for an ORM and a Ruby block, Hyphy collects all executed queries in
-a dataset. Afterward, it can filter the dataset and even benchmark the queries.}
+  gem.description = %Q{A SQL bottleneck toolkit}
   gem.email = "david@nationbuilder.com"
   gem.authors = ["David Huie"]
 end

@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Huie"]
   s.date = "2013-07-30"
-  s.description = "Hyphy is a toolkit for identifying SQL bottlenecks in Ruby applications. Given\nan adapter for an ORM and a Ruby block, Hyphy collects all executed queries in\na dataset. Afterward, it can filter the dataset and even benchmark the queries."
+  s.description = "A SQL bottleneck toolkit"
   s.email = "david@nationbuilder.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",

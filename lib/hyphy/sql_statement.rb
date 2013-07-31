@@ -5,7 +5,6 @@ class Hyphy::SQLStatement
   attr_accessor(:statement,
                 :trace,
                 :metadata,
-                :binds,
                 :plan,
                 :orm_adapter,
                 :start_time,
@@ -19,7 +18,6 @@ class Hyphy::SQLStatement
     @end_time = opts[:end_time]
     @orm_adapter = opts[:orm_adapter]
     @trace = opts[:trace] || []
-    @binds = opts[:binds] || []
     @metadata = opts[:metadata] || {}
   end
 

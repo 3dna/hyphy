@@ -11,8 +11,7 @@ class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
       start_time = args[1]
       end_time = args[2]
 
-      sql_statement = callback.call(sql, start_time, end_time)
-      sql_statement.binds = binds
+      callback.call(sql, start_time, end_time) if binds.empty?
     end
   end
 
@@ -23,11 +22,8 @@ class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
   def self.time_statement(sql_statement)
     ActiveRecord::Base.connection.clear_query_cache
 
-    binds = sql_statement.binds
     Benchmark.realtime { ActiveRecord::Base.connection.send(:exec_query,
-                                                            sql_statement.statement,
-                                                            'SQL',
-                                                            binds) }
+                                                            sql_statement.statement) }
   end
 
   def self.execute_query(query)

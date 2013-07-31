@@ -26,7 +26,7 @@ class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
                                                             sql_statement.statement) }
   end
 
-  def self.execute_query(query)
+  def self.exec(query)
     ActiveRecord::Base.connection.execute(query)
   end
 

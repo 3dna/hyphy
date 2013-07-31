@@ -30,4 +30,8 @@ class Hyphy::ActiveRecordAdapter < Hyphy::AbstractORMAdapter
                                                             binds) }
   end
 
+  def self.execute_query(query)
+    ActiveRecord::Base.connection.execute(query)
+  end
+
 end

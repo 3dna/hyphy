@@ -6,6 +6,7 @@ class Hyphy::SQLStatement
                 :trace,
                 :metadata,
                 :binds,
+                :plan,
                 :orm_adapter,
                 :start_time,
                 :end_time,

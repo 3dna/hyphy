@@ -10,7 +10,8 @@ class Hyphy::SQLStatement
                 :start_time,
                 :end_time,
                 :benchmark_runs,
-                :benchmark_time)
+                :benchmark_time,
+                :cost)
 
   def initialize(opts={})
     @statement = opts[:statement]

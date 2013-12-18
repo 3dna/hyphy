@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
-gem "activesupport", "~> 3.2"
-gem "activerecord", "~> 3.2"
+gem "activesupport", "< 5.0"
+gem "activerecord", "< 5.0"
 
 group :development do
   gem "bundler"
